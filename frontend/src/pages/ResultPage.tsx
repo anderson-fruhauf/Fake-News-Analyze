@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Share2, Loader2, ShieldCheck, Copy, Check } from 'lucide-react';
+import { ArrowLeft, Share2, Loader2, ShieldCheck, Check } from 'lucide-react';
 import api from '../services/api';
 import ResultCard from '../components/ResultCard';
 import type { AnalysisResultType } from '../App';

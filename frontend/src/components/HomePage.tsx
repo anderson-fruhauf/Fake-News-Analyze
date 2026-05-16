@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Image as ImageIcon, ShieldCheck } from 'lucide-react';
 import AnalysisForm from './AnalysisForm';
 import ImageUploader from './ImageUploader';
