@@ -1,28 +1,43 @@
-# 🛡️ Fake News Analyzer
+# 🛡️ TruthLens AI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![NestJS](https://img.shields.io/badge/backend-NestJS-E0234E?style=flat&logo=nestjs)](https://nestjs.com/)
 [![React](https://img.shields.io/badge/frontend-React-61DAFB?style=flat&logo=react)](https://reactjs.org/)
 [![Gemini](https://img.shields.io/badge/AI-Gemini%202.5%20Flash-blue?style=flat&logo=google-gemini)](https://deepmind.google/technologies/gemini/)
 
-O **Fake News Analyzer** é uma plataforma inteligente projetada para combater a desinformação em tempo real. Utilizando tecnologias de ponta em Inteligência Artificial, a aplicação analisa links de notícias e imagens para verificar a veracidade das informações, fornecendo um veredito detalhado e embasado.
+O **TruthLens AI** é uma plataforma inteligente projetada para combater a desinformação em tempo real. Utilizando tecnologias de ponta em Inteligência Artificial, a aplicação analisa links de notícias e imagens para verificar a veracidade das informações, fornecendo um veredito detalhado e embasado.
 
 ---
 
 ## ✨ Funcionalidades Principais
 
 - **🔗 Análise de Links**: Extração automática de conteúdo de artigos e notícias para verificação factual.
-- **🖼️ Análise Multimodal (Imagens)**: Upload de prints ou fotos contendo notícias para análise via OCR e visão computacional.
+- **🖼️ Análise Multimodal (Imagens)**: Upload ou captura de imagens contendo notícias para análise via visão computacional (OCR + Análise Semântica).
 - **🔍 Grounding com Google Search**: Integração em tempo real com a busca do Google para verificar fatos atuais e eventos recentes.
-- **📊 Veredito Detalhado**: Classificação clara (Verdadeiro, Falso, Parcialmente Verdadeiro, etc.) com explicações lógicas e nível de confiança.
-- **🚀 Compartilhamento**: Geração de links únicos para compartilhar os resultados das análises.
+- **📊 Veredito Detalhado**: Classificação clara (Verdadeiro, Falso, Parcialmente Verdadeiro, etc.) com explicações lógicas, resumo da análise e nível de confiança.
+- **🚀 Compartilhamento**: Geração de links únicos para compartilhar os resultados das análises de forma rápida e segura.
+
+---
+
+## 📸 Telas da Aplicação
+
+<div align="center">
+  <p><b>Página Inicial - Análise de Links e Imagens</b></p>
+  <img src="assets/screenshots/home.png" alt="Home Page" width="800px">
+  <br/>
+  <p><b>Interface de Upload de Imagem</b></p>
+  <img src="assets/screenshots/upload.png" alt="Upload Page" width="800px">
+  <br/>
+  <p><b>Resultado Detalhado da Análise</b></p>
+  <img src="assets/screenshots/result.png" alt="Result Page" width="800px">
+</div>
 
 ---
 
 ## 🛠️ Tecnologias e Técnicas Utilizadas
 
 ### Backend (NestJS)
-- **Gemini 2.5 Flash**: Modelo de IA de última geração para processamento de texto e imagem.
+- **Gemini 2.5 Flash**: Modelo de IA multimodal para processamento de texto e imagem.
 - **Google Search Grounding**: Técnica que permite à IA "ancorar" suas respostas em dados reais e atualizados da web.
 - **Zod Guardrails**: Implementação de esquemas de validação rigorosos para garantir que a saída da IA seja sempre estruturada e previsível.
 - **Prisma ORM**: Gerenciamento de banco de dados robusto e tipado.
@@ -31,7 +46,9 @@ O **Fake News Analyzer** é uma plataforma inteligente projetada para combater a
 ### Frontend (React + Vite)
 - **TypeScript**: Garantia de tipo e robustez no desenvolvimento.
 - **React Router**: Navegação fluida entre a busca e os resultados.
-- **CSS Moderno**: Interface responsiva, limpa e focada na experiência do usuário (UX).
+- **Zustand**: Gerenciamento de estado global simplificado.
+- **Lucide React**: Biblioteca de ícones modernos.
+- **CSS Moderno**: Interface responsiva, com estética premium e modo escuro nativo.
 
 ---
 
@@ -42,7 +59,7 @@ A arquitetura segue o modelo Cliente-Servidor com foco em escalabilidade e separ
 1.  **Client (Frontend)**: Interface Single Page Application (SPA) que se comunica via REST API com o backend.
 2.  **Server (Backend)**: API robusta que coordena a extração de dados, orquestração da IA e persistência.
 3.  **Database**: Cache e histórico de análises para performance e referência futura.
-4.  **AI Layer**: Integração direta com os serviços do Google Generative AI para processamento cognitivo.
+4.  **AI Layer**: Integração direta com os serviços do Google Generative AI para processamento cognitivo multimodal.
 
 ```mermaid
 graph TD
@@ -60,22 +77,22 @@ graph TD
 ## 🚀 Como Executar
 
 ### Pré-requisitos
-- Node.js (v18+)
-- Docker e Docker Compose (opcional, para banco de dados)
+- Node.js (v20+)
+- Docker e Docker Compose (opcional)
 - Chave de API do Google Gemini
 
 ### Passo a Passo
 
 1.  **Clone o repositório**:
     ```bash
-    git clone https://github.com/seu-usuario/fakeNewsAnalizer.git
+    git clone https://github.com/anderson-fruhauf/fakeNewsAnalizer.git
     cd fakeNewsAnalizer
     ```
 
 2.  **Configuração do Backend**:
     ```bash
     cd backend
-    cp .env.example .env # Adicione sua GEMINI_API_KEY
+    cp .env.example .env # Adicione sua GEMINI_API_KEY e DATABASE_URL
     yarn install
     yarn migrate
     yarn dev
@@ -90,4 +107,5 @@ graph TD
 
 ---
 
-<p align="center">Desenvolvido com ❤️ para um mundo com mais fatos e menos fakes.</p>
+<p align="center">Desenvolvido com ❤️ por Anderson Fruhauf para um mundo com mais fatos e menos fakes.</p>
+
