@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 import type { AnalysisResultType } from '../App';
 
 interface Props {
@@ -20,7 +20,7 @@ export default function AnalysisForm({ onResult, setLoading, isLoading }: Props)
     try {
       setError('');
       setLoading(true);
-      const { data } = await axios.post('http://localhost:3000/analysis/link', { url });
+      const { data } = await api.post('/analysis/link', { url });
       onResult(data);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Erro ao processar o link. Tente novamente.');

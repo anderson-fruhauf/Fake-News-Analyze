@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Share2, Loader2, ShieldCheck, Copy, Check } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 import ResultCard from '../components/ResultCard';
 import type { AnalysisResultType } from '../App';
 
@@ -17,7 +17,7 @@ export default function ResultPage() {
     const fetchResult = async () => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get(`http://localhost:3000/analysis/${id}`);
+        const { data } = await api.get(`/analysis/${id}`);
         setResult(data);
       } catch (err: any) {
         setError(err.response?.data?.message || 'Não foi possível carregar o resultado.');

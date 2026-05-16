@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { UploadCloud, Loader2, FileImage } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 import type { AnalysisResultType } from '../App';
 
 interface Props {
@@ -58,7 +58,7 @@ export default function ImageUploader({ onResult, setLoading, isLoading }: Props
     try {
       setError('');
       setLoading(true);
-      const { data } = await axios.post('http://localhost:3000/analysis/image', formData, {
+      const { data } = await api.post('/analysis/image', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       onResult(data);
