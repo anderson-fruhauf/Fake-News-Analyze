@@ -46,6 +46,5 @@ yarn-error.log*
 *.local
 
 # Prisma
-/prisma/migrations
 /prisma/*.db
 /prisma/*.db-journal
