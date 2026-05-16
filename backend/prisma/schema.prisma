@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Analysis {
+  id            String   @id @default(uuid())
+  type          String   // "LINK" ou "IMAGE"
+  content       String   // A URL original ou ID/caminho da imagem
+  extractedText String?  // O texto extraído
+  verdict       String   // "TRUE", "FALSE", "PARTIAL", "INCONCLUSIVE"
+  explanation   String   // Explicação da IA
+  confidence    Float    // Nível de confiança da IA (0.0 a 1.0)
+  centralClaims String[] // Alegações centrais identificadas pela IA
+  createdAt     DateTime @default(now())
+}
